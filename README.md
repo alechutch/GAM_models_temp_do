@@ -31,5 +31,27 @@ Known issues
 --> Mismatches with salinity mapping colour in plots
 
 
-### 
+### MODEL_1_GAM_script_all_estuary_points_Model_1.pynb
+Reads in the cleaned csv data from the output_data/{estuary_name} folder
+
+The following pieces of code can be changed:
+1. the sampling window in the GAM function. This is the yearly interval the monte carlo calculation will extract the trend from.
+2. The name of the yearly interval that is determined (note this does not change the yearly interval increments).
+3. The determinand which is analysed. Must be spelt correctly.
+
+This script will run, producing outputs for each estuary in the folder: output_data/{estuary_name}/MODEL_1_GAM_outputs_whole_estuary_{det}_1990_2022
+The following plots are generated:
+1. ActualVSPredicted_{estuary} - This provides a crossplot of the predicted vs actual measurements
+2. Residuals_{estuary} - This provides a plot of the residuals from the model
+3. Dependencies_{estuary} - This provides a graph of each of the partial dependencies in the model
+4. Yearly_dependencies_{estuary} - This provides the graph of the partial dependency of float data, the trend used for this study
+5. Random_model_posterior_sample_distribution_{estuary} - Random samples created from the posterior sample of the model
+6. Random_yearly_dependence_posterior_sample_distribution_{estuary}
+7. Monte_carlo_histogram_{estuary} - Histogram of trend built up from monte carlo simulations to provide average and standard deviation change over set time period
+
+An individual csv is also deposited in the folder called "Humber_trend_result_list.csv" with the r^2 of the model, trend, stdeviation etc.
+
+A combined results file
+
+
 *italic*
