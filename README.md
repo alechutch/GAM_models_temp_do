@@ -1,7 +1,13 @@
 # GAM_models_temp_do
 A series of scripts to isolate the interannual component of change in temperature and dissolved oxygen from environmental monitoring data
 
-# Heading 1
+# Set up
+### Package install
+Use the DO_temp_env.yml file to set up your environment.
+
+You can do this with conda by using the following command:
+conda env create --file DO_temp_env.yml
+
 ### Data sources
 estuary_shapefile_dictionary.csv = List of estuaries and associated shapefiles
 
@@ -31,7 +37,7 @@ Known issues
 --> Mismatches with salinity mapping colour in plots
 
 
-### MODEL_1_GAM_script_all_estuary_points_Model_1.pynb
+### MODEL_1_GAM_script_all_estuary_points_Model_1.ipynb
 Reads in the cleaned csv data from the output_data/{estuary_name} folder
 
 The following pieces of code can be changed:
@@ -51,7 +57,25 @@ The following plots are generated:
 
 An individual csv is also deposited in the folder called "Humber_trend_result_list.csv" with the r^2 of the model, trend, stdeviation etc.
 
-A combined results file
+A combined results file is provided called: "Model_1_output_file_Temperature of Water_1990_2022.csv" which will store each of the individual estuaries datas in one file. hese are used for plotting.
 
+### MODEL_2_GAM_script_all_estuary_points_sal_included.ipynb
 
-*italic*
+This behaves the same way as model 1
+
+### MODEL_3_GAM_script_all_estuary_points_Tensor.ipynb
+
+This behaves similarly to model 1 and 2, with the notable differences:
+
+1. An extra plot is produced: a 2D visualisation of day of year and float date (treated as a tensor).
+2. The output files provide trends for each season
+
+### MODEL_4_GAM_script_individual_sample_points.ipynb
+The following pieces of code can be changed:
+1. Either the yearly interval to sample over or the sampling window in the GAM function. Figures in the paper are reported with a 10 year interval.
+2. The name of the yearly interval that is determined (note this does not change the yearly interval increments).
+3. The determinand which is analysed. Must be spelt correctly.
+
+Each of the plots in MODEL 1 are produced for each individual sample point.
+In addition, a map is produced colour coded by the trend.
+An individual output is set up for each 
